@@ -2,4 +2,7 @@ from django.apps import AppConfig
 
 
 class RecordConfig(AppConfig):
-    name = 'record'
+    name = 'apps.record'
+
+    def ready(self):
+        import apps.record.signals
