@@ -1,7 +1,7 @@
 # Work at Olist
 [![Code Health](https://landscape.io/github/GuilhermeVBeira/work-at-olist/master/landscape.svg?style=flat)](https://landscape.io/github/GuilhermeVBeira/work-at-olist/master)
-
 [![Build Status](https://travis-ci.org/GuilhermeVBeira/work-at-olist.svg?branch=master)](https://travis-ci.org/GuilhermeVBeira/work-at-olist)
+
 [Olist](https://olist.com/) is a company that offers an integration platform
 for sellers and marketplaces allowing them to sell their products across
 multiple channels.
