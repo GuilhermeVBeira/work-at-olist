@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - "3.6.4"
+
+sudo: required
+
+install:
+  - pip install -r requirements-dev.txt
+
+before_script:
+
+  - cp .env.example .env
+  - python manage.py migrate
+
+script:
+  -  python manage.py test
