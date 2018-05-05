@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MinLengthValidator
+from django.core.validators import ValidationError, MinLengthValidator
 import uuid
 
 
@@ -26,3 +26,14 @@ class StartRecord(BaseRecord):
 
 class EndRecord(BaseRecord):
     type = models.CharField(max_length=3, default='end')
+
+    def save(self, *args, **kwargs):
+        if not StartRecord.objects.filter(call_id=self.call_id).exists():
+            msg = "there is no record started with this call_id"
+            raise ValidationError(msg)
+
+        st = StartRecord.objects.get(call_id=self.call_id)
+        if st.timestamp > self.timestamp:
+            msg = "timestamp can not be less than start of recording"
+            raise ValidationError(msg)
+        super().save(*args, **kwargs)
