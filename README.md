@@ -1,5 +1,7 @@
 # Work at Olist
+[![Code Health](https://landscape.io/github/GuilhermeVBeira/work-at-olist/master/landscape.svg?style=flat)](https://landscape.io/github/GuilhermeVBeira/work-at-olist/master)
 
+[![Build Status](https://travis-ci.org/GuilhermeVBeira/work-at-olist.svg?branch=master)](https://travis-ci.org/GuilhermeVBeira/work-at-olist)
 [Olist](https://olist.com/) is a company that offers an integration platform
 for sellers and marketplaces allowing them to sell their products across
 multiple channels.
@@ -47,10 +49,10 @@ Hints:
 You should implement a Python application that receives call detail records
 and calculates monthly bills for a given telephone number.
 
-There are a plenty of telecommunications platform technologies that will 
-consume this application. Some of them have weird behaviours when something 
-goes wrong. That said it's not safe to believe in received data correctness, 
-consistency nor expect some order in their requests. The application should 
+There are a plenty of telecommunications platform technologies that will
+consume this application. Some of them have weird behaviours when something
+goes wrong. That said it's not safe to believe in received data correctness,
+consistency nor expect some order in their requests. The application should
 have flexibility in receiving information to avoid record loss or inconsistency.
 
 This Python application must provide a HTTP REST API to attend the

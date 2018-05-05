@@ -8,3 +8,4 @@
 .env
 tmp
 Pipfile
+db.sqlite3
