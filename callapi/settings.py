@@ -32,17 +32,27 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=config.list)
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+LOCAL_APPS = [
     'apps.record',
     'apps.rate',
     'apps.bill',
 ]
+
+THIRD_PARTY_APPS = [
+    'rest_framework',
+    'django_extensions',
+]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -71,6 +81,12 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [],
+    'PAGINATE_BY': 10,
+}
 
 WSGI_APPLICATION = 'callapi.wsgi.application'
 
