@@ -5,7 +5,7 @@ import uuid
 
 class BaseRecord(models.Model):
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.AutoField(primary_key=True)
     timestamp = models.DateTimeField()
     call_id = models.CharField(max_length=200, unique=True)
 
