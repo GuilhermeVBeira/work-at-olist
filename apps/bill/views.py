@@ -1,8 +1,7 @@
-from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import viewsets
 from rest_framework import status
-from apps.bill.serializers import BillSerializer, BillDetailSerializer
+from apps.bill.serializers import BillSerializer
 from apps.bill.models import Bill
 from datetime import datetime
 
@@ -41,10 +40,4 @@ class BillViewSet(viewsets.ViewSet):
         queryset = queryset.filter(**data)
         ctx = {'request': request}
         serializer = BillSerializer(queryset, context=ctx, many=True)
-        return Response(serializer.data)
-
-    def retrieve(self, request, pk=None):
-        queryset = Bill.objects.all()
-        bill = get_object_or_404(queryset, pk=pk)
-        serializer = BillDetailSerializer(bill)
         return Response(serializer.data)

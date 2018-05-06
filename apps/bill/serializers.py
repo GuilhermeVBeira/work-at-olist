@@ -3,23 +3,6 @@ from apps.bill.models import Bill
 
 
 class BillSerializer(serializers.ModelSerializer):
-    bill = serializers.SerializerMethodField()
-    detail = serializers.HyperlinkedIdentityField(
-            view_name='bill-detail',
-            read_only=True,
-            lookup_field='pk'
-        )
-
-    class Meta:
-        model = Bill
-        fields = ['detail', 'bill']
-
-    def get_bill(self, obj):
-        data = [obj.start.call_id, obj.start, obj.end]
-        return 'call_id: {}, started at {} and ended at {}.'.format(*data)
-
-
-class BillDetailSerializer(serializers.ModelSerializer):
 
     started = serializers.SerializerMethodField()
     ended = serializers.SerializerMethodField()
