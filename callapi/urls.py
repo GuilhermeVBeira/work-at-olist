@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from apps.bill.views import BillViewSet
 from apps.record.views import RecordViewSet
+from apps.rate.views import TelephoneRateViewSet
 from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
@@ -27,4 +28,5 @@ urlpatterns = [
 router = DefaultRouter()
 router.register(r'bill', BillViewSet, base_name='bill')
 router.register(r'record', RecordViewSet, base_name='record')
+router.register(r'fone-tax', TelephoneRateViewSet, base_name='fone-tax')
 urlpatterns += router.urls
