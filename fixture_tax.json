@@ -1,0 +1,1 @@
+[{"model": "rate.telphonerate", "pk": 1, "fields": {"standing_charge": "0.36", "charge_minute": "0.09", "start": "06:00:00", "end": "22:00:00", "type": "standard"}}, {"model": "rate.telphonerate", "pk": 2, "fields": {"standing_charge": "0.36", "charge_minute": "0.00", "start": "22:00:00", "end": "06:00:00", "type": "reduced"}}]
