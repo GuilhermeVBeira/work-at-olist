@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.core.validators import ValidationError
 from django.db import IntegrityError
 from apps.record.models import StartRecord
 from datetime import datetime
@@ -18,6 +19,11 @@ class StartRecordModelTest(TestCase):
         obj2 = self.make_obj()
         with self.assertRaises(IntegrityError):
             obj2.save()
+
+    def test_same_value_source_and_destination(self):
+            obj = self.make_obj(source=88888888, destination=88888888)
+            with self.assertRaises(ValidationError):
+                obj.save()
 
     def make_obj(self, **kwargs):
         data = {'source': 411234567,

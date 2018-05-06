@@ -42,6 +42,19 @@ class RecordTestAPI(APITestCase):
                          'Expected Response Code 400, received {0} instead.'
                          .format(response.status_code))
 
+    def test_create_start_record_same_source_and_destination(self):
+
+        params = {'type': 'start',
+                  'source': 88888888,
+                  'destination': 88888888,
+                  'timestamp': '2018-04-28T18:00',
+                  'call_id': 3535}
+
+        response = self.client.post(self.uri, params)
+        self.assertEqual(response.status_code, 400,
+                         'Expected Response Code 400, received {0} instead.'
+                         .format(response.status_code))
+
     def test_create_end_record(self):
 
         params = {'type': 'end',

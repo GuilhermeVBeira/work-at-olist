@@ -13,6 +13,12 @@ class StartRecordSerializer(serializers.ModelSerializer):
         fields = ['id', 'type', 'call_id', 'source',
                   'destination', 'timestamp']
 
+    def validate(self, data):
+        if data['source'] == data['destination']:
+            msg = "Source and destination can't be equals"
+            raise serializers.ValidationError(msg)
+        return data
+
 
 class EndRecordSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)

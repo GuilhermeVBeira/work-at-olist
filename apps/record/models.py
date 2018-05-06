@@ -23,6 +23,12 @@ class StartRecord(BaseRecord):
     destination = models.CharField(max_length=9,
                                    validators=[MinLengthValidator(8)])
 
+    def save(self, *args, **kwargs):
+        if self.source == self.destination:
+            msg = "Source and destination can't be equals"
+            raise ValidationError(msg)
+        super().save(*args, **kwargs)
+
 
 class EndRecord(BaseRecord):
     type = models.CharField(max_length=3, default='end')
