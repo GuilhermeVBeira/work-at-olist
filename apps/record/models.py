@@ -3,7 +3,6 @@ from django.core.validators import ValidationError, MinLengthValidator
 
 
 class BaseRecord(models.Model):
-
     id = models.AutoField(primary_key=True)
     timestamp = models.DateTimeField()
     call_id = models.CharField(max_length=200, unique=True)

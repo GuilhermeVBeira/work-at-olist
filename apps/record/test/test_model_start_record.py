@@ -14,6 +14,9 @@ class StartRecordModelTest(TestCase):
         self.assertTrue(StartRecord.objects.exists())
 
     def test_unique_call_id(self):
+        """
+        Ensure unique field in DB
+        """
         obj = self.make_obj()
         obj.save()
         obj2 = self.make_obj()
@@ -21,9 +24,12 @@ class StartRecordModelTest(TestCase):
             obj2.save()
 
     def test_same_value_source_and_destination(self):
-            obj = self.make_obj(source=88888888, destination=88888888)
-            with self.assertRaises(ValidationError):
-                obj.save()
+        """
+        Ensure we can't create start object with same destination and source
+        """
+        obj = self.make_obj(source=88888888, destination=88888888)
+        with self.assertRaises(ValidationError):
+            obj.save()
 
     def make_obj(self, **kwargs):
         data = {'source': 411234567,

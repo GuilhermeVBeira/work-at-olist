@@ -9,17 +9,20 @@ import pytz
 class BillModelTest(TestCase):
 
     def setUp(self):
+        # data for start record
         start_date = datetime(2018, 11, 20, 21, 57, 13, tzinfo=pytz.UTC)
         data_start = {'source': 411234567, 'destination': 411234569,
                       'timestamp': start_date, 'call_id': 3535}
+        # data for end record
         end_date = datetime(2018, 11, 20, 22, 10, 56, tzinfo=pytz.UTC)
         data_end = {'timestamp': end_date, 'call_id': 3535}
-
+        # data for first telefone tax
         data_tax1 = {'standing_charge': 0.36,
                      'charge_minute': 0.09,
                      'start': time(hour=6, minute=0, second=0),
                      'end': time(hour=22, minute=0, second=0),
                      'type': TelphoneRate.TYPE_CHOICE.standard}
+        # data for second telefone tax
         data_tax2 = {'standing_charge': 0.36,
                      'charge_minute': 0.00,
                      'start': time(hour=22, minute=0, second=0),
@@ -39,6 +42,9 @@ class BillModelTest(TestCase):
         self.assertTrue(Bill.objects.exists())
 
     def test_calculation(self):
+        """
+        Ensure the call_price will be calculated correctly
+        """
         obj = self.make_obj()
         obj.save()
         self.assertEqual(float(obj.call_price), 0.54)
