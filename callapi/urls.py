@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from apps.bill.views import BillViewSet
 from apps.record.views import RecordViewSet
 from rest_framework.routers import DefaultRouter
 
@@ -24,5 +25,6 @@ urlpatterns = [
 
 
 router = DefaultRouter()
+router.register(r'bill', BillViewSet, base_name='bill')
 router.register(r'record', RecordViewSet, base_name='record')
 urlpatterns += router.urls
