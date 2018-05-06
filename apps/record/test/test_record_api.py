@@ -1,6 +1,8 @@
 from rest_framework.test import APITestCase
 from rest_framework.test import APIClient
 from apps.record.models import StartRecord
+from datetime import datetime
+import pytz
 
 
 class RecordTestAPI(APITestCase):
@@ -8,10 +10,11 @@ class RecordTestAPI(APITestCase):
     def setUp(self):
         self.uri = '/record/'
         self.client = APIClient()
+        date = datetime(2018, 4, 28, 18, 0, 0, tzinfo=pytz.UTC)
         data_start = {'type': 'start',
                       'source': 411234567,
                       'destination': 411234569,
-                      'timestamp': '2018-04-28T18:00',
+                      'timestamp': date,
                       'call_id': 3535}
 
         self.start = StartRecord.objects.create(**data_start)
@@ -58,7 +61,7 @@ class RecordTestAPI(APITestCase):
     def test_create_end_record(self):
 
         params = {'type': 'end',
-                  'timestamp': '2018-04-28T18:30',
+                  'timestamp': '2018-04-28T18:00',
                   'call_id': self.start.call_id}
 
         response = self.client.post(self.uri, params)
