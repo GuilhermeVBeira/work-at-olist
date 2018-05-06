@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from apps.record.views import RecordViewSet
+from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+
+router = DefaultRouter()
+router.register(r'record', RecordViewSet, base_name='record')
+urlpatterns += router.urls
