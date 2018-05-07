@@ -28,5 +28,5 @@ urlpatterns = [
 router = DefaultRouter()
 router.register(r'bill', BillViewSet, base_name='bill')
 router.register(r'record', RecordViewSet, base_name='record')
-router.register(r'fone-tax', TelephoneRateViewSet, base_name='fone-tax')
+router.register(r'phone-tax', TelephoneRateViewSet, base_name='phone-tax')
 urlpatterns += router.urls

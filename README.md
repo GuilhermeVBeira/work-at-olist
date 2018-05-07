@@ -11,7 +11,6 @@ pip install -r requirements-dev.txt
 cp .env.example .env
 python manage.py migrate
 python manage.py loaddata fixture_tax.json
-python manage.py runserver
 ```
 
 # Test
@@ -26,9 +25,11 @@ python manage.py test apps
 |  Computer |   Hp elitebook 8470p |
 |  S.O. | Ubuntu 16lts  |
 |  Editor | atom  |
-|  Django | 2.0  |
-|  Python | 3.6  |
-|  djangorestframework | 3.8.2 |
+|  Django version| 2.0  |
+|  Python version | 3.6.4  |
+|  djangorestframework version | 3.8.2 |
+
+Adicional libs
 
 
 
@@ -36,7 +37,7 @@ python manage.py test apps
 
 
 ### List telefone taxs
-`GET https://calls-api.herokuapp.com/fone-tax/`
+`GET https://calls-api.herokuapp.com/phone-tax/`
 
 ### List bills
 `GET https://calls-api.herokuapp.com/bill/?subscriber=<number>`

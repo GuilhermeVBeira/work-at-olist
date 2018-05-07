@@ -5,7 +5,7 @@ from rest_framework.test import APIClient
 class RecordTestAPI(APITestCase):
 
     def setUp(self):
-        self.uri = '/fone-tax/'
+        self.uri = '/phone-tax/'
         self.client = APIClient()
 
     def test_list_telefone_tax(self):

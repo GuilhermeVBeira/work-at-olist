@@ -3,7 +3,6 @@ from apps.bill.models import Bill
 
 
 class BillSerializer(serializers.ModelSerializer):
-
     duration = serializers.SerializerMethodField()
     started_date = serializers.SerializerMethodField()
     started_time = serializers.SerializerMethodField()

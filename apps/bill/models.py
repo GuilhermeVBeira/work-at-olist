@@ -46,11 +46,10 @@ class Bill(models.Model):
         data4 = {'start__lte': start, 'end__gte': end}
 
         # checks all rates at which the call combines
-        tax_to_appy = TelphoneRate.objects.filter(
+        tax_to_apply = TelphoneRate.objects.filter(
             Q(**data1) | Q(**data2) | Q(**data3) | Q(**data4)
         ).order_by('start').distinct()
-        # tax_to_appy = tax_to_appy.order_by('start')
-        for tax in tax_to_appy:
+        for tax in tax_to_apply:
 
             if tax.start <= start and tax.end >= end:
                 # obj date inside tax range
@@ -72,8 +71,8 @@ class Bill(models.Model):
                 amount_price += Decimal(minutes) * tax.charge_minute
 
         # apply standing_charge
-        if len(tax_to_appy) > 0:
-            amount_price += tax_to_appy[0].standing_charge
+        if len(tax_to_apply) > 0:
+            amount_price += tax_to_apply[0].standing_charge
         self.call_price = amount_price
 
 
