@@ -41,6 +41,7 @@ python manage.py test apps
 
 #### List bills
 `GET https://calls-api.herokuapp.com/bill/?subscriber=<number>`
+
 this will return de last previus month, if you want other references use ‘reference’ for specific date,
 example:
 
@@ -48,6 +49,7 @@ example:
 
 ### Create a Call Record
 `POST https://calls-api.herokuapp.com/record/`
+
 For start records:
 ```
     {
