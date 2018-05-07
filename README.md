@@ -28,7 +28,6 @@ python manage.py test apps
 |  Editor | atom  |
 |  Django | 2.0  |
 |  Python | 3.6  |
-|  Django | 2.0  |
 |  djangorestframework | 3.8.2 |
 
 
