@@ -27,7 +27,7 @@ class StartRecordModelTest(TestCase):
         """
         Ensure we can't create start object with same destination and source
         """
-        obj = self.make_obj(source=88888888, destination=88888888)
+        obj = self.make_obj(source=4188888888, destination=4188888888)
         with self.assertRaises(ValidationError):
             obj.save()
 
