@@ -46,7 +46,7 @@ example:
 `GET https://calls-api.herokuapp.com/bill/?subscriber=<number>&reference=04/2018`
 
 ### Create a Call Record
-`POST https://calls-api.herokuapp.com/bill/`
+`POST https://calls-api.herokuapp.com/record/`
 For start records:
 ```
     {
