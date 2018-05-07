@@ -16,10 +16,10 @@ class BaseRecord(models.Model):
 
 class StartRecord(BaseRecord):
     type = models.CharField(max_length=5, default='start')
-    source = models.CharField(max_length=9,
-                              validators=[MinLengthValidator(8)])
-    destination = models.CharField(max_length=9,
-                                   validators=[MinLengthValidator(8)])
+    source = models.CharField(max_length=12,
+                              validators=[MinLengthValidator(10)])
+    destination = models.CharField(max_length=12,
+                                   validators=[MinLengthValidator(10)])
 
     def save(self, *args, **kwargs):
         if self.source == self.destination:
