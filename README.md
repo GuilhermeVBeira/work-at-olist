@@ -11,7 +11,7 @@ pip install -r requirements-dev.txt
 cp .env.example .env
 python manage.py migrate
 python manage.py loaddata fixture_tax.json
-python maanage.py runserver
+python manage.py runserver
 ```
 
 # Test
