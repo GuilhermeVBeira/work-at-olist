@@ -5,6 +5,7 @@
 # Instalation
 After you have already cloned the project
 ```console
+cd work-at-olist/
 virtualenv env -p python3
 source env/bin/activate
 pip install -r requirements-dev.txt
@@ -29,7 +30,6 @@ python manage.py test apps
 |  Python version | 3.6.4  |
 |  djangorestframework version | 3.8.2 |
 
-Adicional libs
 
 
 
