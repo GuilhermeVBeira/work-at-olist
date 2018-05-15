@@ -2,6 +2,10 @@
 [![Code Health](https://landscape.io/github/GuilhermeVBeira/work-at-olist/master/landscape.svg?style=flat)](https://landscape.io/github/GuilhermeVBeira/work-at-olist/master)
 [![Build Status](https://travis-ci.org/GuilhermeVBeira/work-at-olist.svg?branch=master)](https://travis-ci.org/GuilhermeVBeira/work-at-olist)
 
+# Description
+
+My solution to the [challenge](https://github.com/olist/work-at-olist/blob/master/README.md) from olist. An api where it is possible to inform the beginning and end of the connections, being possible to identify the price of each one per month.
+
 # Instalation
 After you have already cloned the project
 ```console
@@ -39,6 +43,26 @@ python manage.py test apps
 ### List telefone taxs
 `GET https://calls-api.herokuapp.com/phone-tax/`
 
+response: 
+```
+  {
+        "id": 1,
+        "standing_charge": "0.36",
+        "charge_minute": "0.09",
+        "start": "06:00:00",
+        "end": "22:00:00",
+        "type": "standard"
+    },
+    {
+        "id": 2,
+        "standing_charge": "0.36",
+        "charge_minute": "0.00",
+        "start": "22:00:00",
+        "end": "06:00:00",
+        "type": "reduced"
+    }
+```
+
 ### List bills
 `GET https://calls-api.herokuapp.com/bill/?subscriber=<number>`
 
@@ -46,6 +70,18 @@ this will return de last previus month, if you want other references use ‘refe
 example:
 
 `GET https://calls-api.herokuapp.com/bill/?subscriber=<number>&reference=04/2018`
+
+response: 
+```
+    {
+        "destination": "9993468278",
+        "started_date": "2016-02-29",
+        "started_time": "14:00:00",
+        "duration": "2:00:00",
+        "call_price": "11.16"
+    },
+    ...
+```
 
 ### Create a Call Record
 `POST https://calls-api.herokuapp.com/record/`
